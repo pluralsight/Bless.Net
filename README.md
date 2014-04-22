@@ -1,0 +1,1 @@
+# Inspired by [bless.js](https://github.com/paulyoung/bless.js)
