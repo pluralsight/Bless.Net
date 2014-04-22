@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Bless.Core</id>
+    <version>0.0.1</version>
+    <authors>jonathan-turner,phil-borlin</authors>
+    <owners>pluralsight</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>https://github.com/pluralsight/Bless.Net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>.dll version. A CSS splitter to get around the IE9 4095 selector per file issue</description>
+    <releaseNotes>Initial Release.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>CSS .Net IE9</tags>
+    <dependencies>
+      <dependency id="ExCSS" version="2.0.2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+	<file src="..\Bless.Core\bin\Release\Bless.Core.dll" target="lib\net40-client" />
+  </files>
+</package>
