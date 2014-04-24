@@ -13,7 +13,7 @@ namespace Bless.Core
     {
         public static int MaxSelectorCount = 4095;
 
-        public List<string> Parse(Stream stream)
+        public IEnumerable<string> Parse(Stream stream)
         {
             var files = new List<string>();
             var parser = new Parser();
