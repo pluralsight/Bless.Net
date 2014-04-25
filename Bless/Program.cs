@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Bless.Core;
 using System.IO;
 
@@ -21,9 +20,15 @@ namespace Bless
 
             var dir = Path.GetDirectoryName(args[1]);
             var baseFileName = Path.GetFileName(args[1]);
-            foreach (string file in files)
+            var index = files.Count() - 1;
+            foreach (var file in files)
             {
-                // TODO Create a new file and write the contents of file to it.
+                var fileName = baseFileName + (index == 0 ? "" : index.ToString(CultureInfo.InvariantCulture));
+                using (var fileStream = File.OpenWrite(Path.Combine(dir ?? "", fileName)))
+                {
+                    var bytes = Encoding.UTF8.GetBytes(file);
+                    fileStream.Write(bytes, 0, bytes.GetLength(0));
+                }
             }
         }
     }
