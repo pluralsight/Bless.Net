@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Bless</id>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <authors>jonathan-turner,phil-borlin</authors>
     <owners>pluralsight</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
@@ -13,7 +13,7 @@
     <copyright>Copyright 2014</copyright>
     <tags>CSS .Net IE9</tags>
     <dependencies>
-      <dependency id="Bless.Core" version="0.0.2" />
+      <dependency id="Bless.Core" version="0.0.3" />
     </dependencies>
   </metadata>
   <files>

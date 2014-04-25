@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bless.Core">
-      <HintPath>..\packages\Bless.Core.0.0.2\lib\net40-client\Bless.Core.dll</HintPath>
+    <Reference Include="Bless.Core, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Bless.Core.0.0.3\lib\net40-client\Bless.Core.dll</HintPath>
     </Reference>
     <Reference Include="ExCSS">
       <HintPath>..\packages\ExCSS.2.0.2\lib\net45\ExCSS.dll</HintPath>
