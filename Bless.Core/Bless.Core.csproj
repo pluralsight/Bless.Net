@@ -46,6 +46,7 @@
       <Link>Properties\Version.cs</Link>
     </Compile>
     <Compile Include="BlessParser.cs" />
+    <Compile Include="FileAssembler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@ namespace Bless.Core
 {
     public class BlessParser
     {
-        public static int MaxSelectorCount = 4095;
+        public const int MaxSelectorCount = 4095;
 
         public IEnumerable<string> Parse(Stream stream)
         {
