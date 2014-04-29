@@ -31,7 +31,7 @@ namespace Bless.Core
             string imports = string.Empty;
             foreach (var file in assembledFiles)
             {
-                imports += string.Format("@import(/{0});\n", file);
+                imports += string.Format("@import url('{0}');\n", file);
             }
             return imports + outputCss;
         }

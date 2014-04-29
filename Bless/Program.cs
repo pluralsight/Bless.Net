@@ -20,15 +20,14 @@ namespace Bless
 
             var dir = Path.GetDirectoryName(args[1]);
             var baseFileName = Path.GetFileName(args[1]);
-            var index = files.Count() - 1;
-            foreach (var file in files)
+
+            var fileAssembler = new FileAssembler();
+            var builtFiles = fileAssembler.BuildFiles(files, baseFileName);
+            builtFiles[builtFiles.Last().Key] = fileAssembler.AddImportsToBaseFile(builtFiles.Take(builtFiles.Count - 1).Select(x => x.Key), builtFiles.Last().Value);
+
+            foreach (var file in builtFiles)
             {
-                var fileName = baseFileName + (index == 0 ? "" : index.ToString(CultureInfo.InvariantCulture));
-                using (var fileStream = File.OpenWrite(Path.Combine(dir ?? "", fileName)))
-                {
-                    var bytes = Encoding.UTF8.GetBytes(file);
-                    fileStream.Write(bytes, 0, bytes.GetLength(0));
-                }
+                File.WriteAllText(Path.Combine(dir, file.Key), file.Value);
             }
         }
     }

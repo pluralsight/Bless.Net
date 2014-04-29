@@ -26,10 +26,10 @@ namespace Bless.Core
                     file = new StringBuilder();
                 }
 
-                file.Append(rule);
+                file.AppendLine(rule.ToString());
                 index++;
             }
-            files.Add(file.ToString());
+            files.Add(file.ToString().TrimEnd());
 
             return files;
         }

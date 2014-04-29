@@ -59,8 +59,8 @@ namespace Bless.Core.Tests
                 "output2.css"
             };
             var modifiedFile = assembler.AddImportsToBaseFile(assembledFiles, "css goes here");
-            Assert.That(modifiedFile, Contains.Substring("@import(/output1.css)"));
-            Assert.That(modifiedFile, Contains.Substring("@import(/output2.css)"));
+            Assert.That(modifiedFile, Contains.Substring("@import url('output1.css')"));
+            Assert.That(modifiedFile, Contains.Substring("@import url('output2.css')"));
             Assert.That(modifiedFile, Contains.Substring("css goes here"));
         }
 
@@ -75,9 +75,13 @@ namespace Bless.Core.Tests
             };
             var modifiedFile = assembler.AddImportsToBaseFile(assembledFiles, "css goes here");
 
-            Assert.That(modifiedFile.IndexOf("@import(/output1.css)"), Is.EqualTo(0));
-            Assert.That(modifiedFile.IndexOf("@import(/output2.css)"), Is.GreaterThan(modifiedFile.IndexOf("@import(/output1.css)")));
-            Assert.That(modifiedFile.IndexOf("css goes here"), Is.GreaterThan(modifiedFile.IndexOf("@import(/output2.css)")));
+            var output1Index = modifiedFile.IndexOf("@import url('output1.css')");
+            var output2Index = modifiedFile.IndexOf("@import url('output2.css')");
+            var originalFileContentsIndex = modifiedFile.IndexOf("css goes here");
+
+            Assert.That(output1Index, Is.EqualTo(0));
+            Assert.That(output2Index, Is.GreaterThan(output1Index));
+            Assert.That(originalFileContentsIndex, Is.GreaterThan(output2Index));
         }
 
     }
