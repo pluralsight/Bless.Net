@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Text;
 using ExCSS;
 
@@ -9,15 +8,15 @@ namespace Bless.Core
     {
         public const int MaxSelectorCount = 4095;
 
-        public IEnumerable<string> Parse(Stream stream)
+        public IEnumerable<string> Parse(string css)
         {
             var files = new List<string>();
             var parser = new Parser();
-            var stylesheet = parser.Parse(stream);
+            var stylesheet = parser.Parse(css);
 
             var file = new StringBuilder();
             var index = 0;
-            foreach (StyleRule rule in stylesheet.Rulesets)
+            foreach (var rule in stylesheet.Rules)
             {
                 if (index >= MaxSelectorCount)
                 {
