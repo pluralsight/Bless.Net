@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using NUnit.Framework;
@@ -14,8 +15,8 @@ namespace Bless.Core.Tests
         public void SetUp()
         {
             var blessParser = new BlessParser();
-            var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Bless.Core.Tests.example.css");
-            _files = blessParser.Parse(stream).ToList();
+            var streamReader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("Bless.Core.Tests.example.css"));
+            _files = blessParser.Parse(streamReader.ReadToEnd()).ToList();
         }
 
         [Test]

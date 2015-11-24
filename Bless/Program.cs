@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using Bless.Core;
 using System.IO;
+using System.Linq;
+using Bless.Core;
 
 namespace Bless
 {
@@ -12,10 +10,10 @@ namespace Bless
         static void Main(string[] args)
         {
             IEnumerable<string> files;
-            using (var fileStream = File.Open(args[0], FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (var streamReader = new StreamReader(args[0]))
             {
                 var parser = new BlessParser();
-                files = parser.Parse(fileStream);
+                files = parser.Parse(streamReader.ReadToEnd());
             }
 
             var dir = Path.GetDirectoryName(args[1]);
